@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.contrib.auth import auth_views
 from django.urls import path
-from .views import signup
+from .views import signup, authenticate_user
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,4 +30,5 @@ urlpatterns = [
     path('accounts/reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
     path('accounts/reset/done/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
     path('accounts/signup/', signup, name='signup'),
+    path('accounts/authenticate_user/', authenticate_user, name='authenticate_user'),
 ]
